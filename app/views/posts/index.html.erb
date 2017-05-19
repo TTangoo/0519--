@@ -1,0 +1,80 @@
+<!--환영합니다 문구랑 사이트 본격적으로 들어가는거(로그인상태)-->
+<!--로그인안되어있으면 다시 로그인페이지로-->
+<!--로그아웃버튼-->
+
+
+ <header class="header mb-5">
+  <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-white">
+
+    <h1 class="brand">
+      <a class="navbar-brand" href="#" lang="en">Lyrics</a>
+    </h1>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item px-lg-3 active">
+          <a class="nav-link" href="#">홈<span class="sr-only">(현재 페이지)</span></a>
+        </li>
+        <li class="nav-item px-lg-3">
+          <a class="nav-link" href="#" >소개</a>
+        </li>
+        <li class="nav-item px-lg-3">
+          <a class="nav-link" href="#">문의사항</a>
+        </li>
+        
+      </ul>
+    </div>
+
+  </nav>
+</header>
+
+<!--홈-->
+
+
+
+<!--이거 수정하기-->
+<div class="container">
+    <div class="row">
+        <div class="col-8 push-3">
+            <% @users.each do |u| %>
+                <h3>반갑습니다! <%= u.name %>님! </h3>
+
+            <% end %>
+
+
+            <form action="/sessions/destroy">
+                <button type="submit" class="btn btn-warning">로그아웃</button> 
+            </form>
+            <hr>
+
+            <form action="/posts/new">
+                <button type="submit" class="btn btn-success">작성하기</button> 
+            </form>
+
+            <div class="post">
+                <h3>게시글 모음</h3>
+                <hr>
+              
+                <% @posts.each do |p|%>
+                  <div class="post_title">
+                <h5><a href="/posts/show/<%= p.id %>"><%= p.title %></a></h5>
+                </div>
+                <br>
+                
+                   
+                        <form action="/posts/destroy/<%= p.id %>" method="POST">
+                            <button type="submit" class="btn btn-warning">삭제</button> 
+                        </form>
+    
+                        <form action="/posts/edit/<%= p.id %>" method="POST">
+                             <button type="submit" class="btn btn-info">수정</button> 
+                        </form>
+                        
+             
+                <hr>
+                <% end %>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+

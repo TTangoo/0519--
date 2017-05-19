@@ -1,0 +1,35 @@
+
+
+<header class="header mb-5">
+  <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-white">
+
+    <h1 class="brand">
+      <a class="navbar-brand" href="#" lang="en">Lyrics</a>
+    </h1>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item px-lg-3 active">
+          <a class="nav-link" href="#">회원가입<span class="sr-only">(현재 페이지)</span></a>
+        </li>
+        
+        <li class="nav-item px-lg-3">
+          <a class="nav-link" href="#">문의사항</a>
+        </li>
+       
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+    <div class="row">
+    <form action="/users/create" method="POST" class="col-8 push-4">
+    <input type="text" name="name" class="mb-2" placeholder="이름"><br>
+    <input type="email" name="email" class="mb-2" placeholder="이메일"><br>
+    <input type="password" name="password" class="mb-2" placeholder="비밀번호"><br>
+    <input type="password" name="password_confirmation"  class="mb-2" placeholder="비밀번호 확인"><br>
+     <button type="submit" class="btn btn-warning">회원가입</button> 
+</form>
+</div>
+</div>
+
